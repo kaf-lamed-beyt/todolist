@@ -26,18 +26,20 @@ class TodoList extends Component {
             this._inputElement.value = "";
         }
 
-        console.log(this.state.items);
+        // console.log(this.state.items);
 
-        e.preventDefault();
+        e.preventDefault(); //Preventing the browser from reloading all over again, therefore loosing our data
     }
     deleteItem(key) {
         let filteredItems = this.state.items.filter(function (item) {
-            return (item.key !== key)
+            return (item.key !== key);
         });
 
         this.setState({
             items: filteredItems
         });
+
+        console.log(filteredItems);
     }
     render() {
         return (
