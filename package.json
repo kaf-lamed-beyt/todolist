@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Caleb335/todolist#readme",
   "dependencies": {
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
