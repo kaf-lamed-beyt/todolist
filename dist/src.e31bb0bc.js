@@ -29772,7 +29772,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"app.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"components/TodoList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29784,15 +29784,93 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
+var TodoList = function TodoList(_ref) {
+  var children = _ref.children;
+  return _react.default.createElement("div", {
+    className: "todo-space"
+  }, children);
+};
+
+var _default = TodoList;
+exports.default = _default;
+},{"react":"../../../../node_modules/react/index.js"}],"../assets/data.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.todoItem = void 0;
+var todoItem = [{
+  id: 0,
+  text: "Kilon sup"
+}, {
+  id: 1,
+  text: "Hello there!"
+}, {
+  id: 2,
+  text: "Kilian Mbape"
+}, {
+  id: 3,
+  text: "What's happening in this life!"
+}, {
+  id: 4,
+  text: "Even small money sef, some di nor have"
+}];
+exports.todoItem = todoItem;
+},{}],"components/TodoItem.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _data = require("../../assets/data");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TodoItem = function TodoItem() {
+  return _react.default.createElement("div", {
+    className: "todo-item"
+  }, _data.todoItem.map(function (what) {
+    return _react.default.createElement("ul", {
+      key: what.id
+    }, _react.default.createElement("li", null, what.text));
+  }));
+};
+
+var _default = TodoItem;
+exports.default = _default;
+},{"react":"../../../../node_modules/react/index.js","../../assets/data":"../assets/data.js"}],"app.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _TodoList = _interopRequireDefault(require("./components/TodoList"));
+
+var _TodoItem = _interopRequireDefault(require("./components/TodoItem"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App(_ref) {
+  var todo = _ref.todo;
   return _react.default.createElement("div", {
     className: "app__base"
-  }, _react.default.createElement("h2", null, "Hello Todos"));
+  }, _react.default.createElement("h2", null, "Hello Todos"), _react.default.createElement(_TodoList.default, null, _react.default.createElement(_TodoItem.default, {
+    todo: todo
+  })));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../../../../node_modules/react/index.js","./components/TodoList":"components/TodoList.js","./components/TodoItem":"components/TodoItem.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
