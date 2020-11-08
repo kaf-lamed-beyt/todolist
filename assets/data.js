@@ -1,4 +1,4 @@
-export const todoItem = [
+export const list = [
     {
         id: 0,
         text: "Kilon sup"

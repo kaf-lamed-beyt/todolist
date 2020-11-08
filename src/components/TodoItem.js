@@ -1,17 +1,10 @@
 import React from "react"
 
-import { todoItem } from "../../assets/data"
 
-const TodoItem = () => {
+const TodoItem = ({ what }) => {
   return (
     <div className='todo-item'>
-      {todoItem.map(what => {
-        return (
-          <ul key={what.id}>
-            <li>{what.text}</li>
-          </ul>
-        )
-      })}
+      {what.text}
     </div>
   )
 }

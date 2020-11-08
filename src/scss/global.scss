@@ -4,14 +4,22 @@
   padding: 0;
 }
 
-.todo-space {
-  width: 100%;
+.todo-list {
+  width: 500px;
   padding: 50px;
   border: 1px solid red;
+  margin: 120px;
+  margin-top: 3%;
+  margin-left: 32%;
 
   .todo-item {
-      display: flex;
-      flex-wrap: wrap;
+    margin-top: 25px;
+    height: 45px;
+    height: 100%;
+    background: ghostwhite;
+    box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 15px;
   }
 }
 

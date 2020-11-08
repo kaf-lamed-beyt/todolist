@@ -29772,7 +29772,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"components/TodoList.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"components/TodoItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29784,14 +29784,14 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TodoList = function TodoList(_ref) {
-  var children = _ref.children;
+var TodoItem = function TodoItem(_ref) {
+  var what = _ref.what;
   return _react.default.createElement("div", {
-    className: "todo-space"
-  }, children);
+    className: "todo-item"
+  }, what.text);
 };
 
-var _default = TodoList;
+var _default = TodoItem;
 exports.default = _default;
 },{"react":"../../../../node_modules/react/index.js"}],"../assets/data.js":[function(require,module,exports) {
 "use strict";
@@ -29799,8 +29799,8 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.todoItem = void 0;
-var todoItem = [{
+exports.list = void 0;
+var list = [{
   id: 0,
   text: "Kilon sup"
 }, {
@@ -29816,8 +29816,8 @@ var todoItem = [{
   id: 4,
   text: "Even small money sef, some di nor have"
 }];
-exports.todoItem = todoItem;
-},{}],"components/TodoItem.js":[function(require,module,exports) {
+exports.list = list;
+},{}],"components/TodoList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29827,23 +29827,26 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _TodoItem = _interopRequireDefault(require("../components/TodoItem"));
+
 var _data = require("../../assets/data");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TodoItem = function TodoItem() {
+var TodoList = function TodoList() {
   return _react.default.createElement("div", {
-    className: "todo-item"
-  }, _data.todoItem.map(function (what) {
-    return _react.default.createElement("ul", {
-      key: what.id
-    }, _react.default.createElement("li", null, what.text));
+    className: "todo-list"
+  }, _data.list.map(function (todo) {
+    return _react.default.createElement(_TodoItem.default, {
+      what: todo,
+      key: todo.id
+    });
   }));
 };
 
-var _default = TodoItem;
+var _default = TodoList;
 exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js","../../assets/data":"../assets/data.js"}],"app.js":[function(require,module,exports) {
+},{"react":"../../../../node_modules/react/index.js","../components/TodoItem":"components/TodoItem.js","../../assets/data":"../assets/data.js"}],"app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29984,7 +29987,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44967" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
