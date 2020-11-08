@@ -3,14 +3,29 @@
   margin: 0;
   padding: 0; }
 
-.todo-list {
+.app__base {
   width: 500px;
-  padding: 50px;
   border: 1px solid red;
-  margin: 120px;
   margin-top: 3%;
-  margin-left: 32%; }
-  .todo-list .todo-item {
+  margin-left: 32%;
+  padding: 40px; }
+  .app__base h2 {
+    text-align: center; }
+  .app__base .input-sect {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6%; }
+    .app__base .input-sect .input-todo {
+      height: 45px;
+      width: 320px; }
+    .app__base .input-sect button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: green;
+      color: #fff;
+      border: transparent; }
+  .app__base .todo-list .todo-item {
     margin-top: 25px;
     height: 45px;
     height: 100%;

@@ -4,22 +4,47 @@
   padding: 0;
 }
 
-.todo-list {
+.app__base {
   width: 500px;
-  padding: 50px;
   border: 1px solid red;
-  margin: 120px;
   margin-top: 3%;
   margin-left: 32%;
+  padding: 40px;
 
-  .todo-item {
-    margin-top: 25px;
-    height: 45px;
-    height: 100%;
-    background: ghostwhite;
-    box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    padding: 15px;
+  & h2 {
+    text-align: center;
+  }
+
+  .input-sect {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6%;
+
+    & .input-todo {
+      height: 45px;
+      width: 320px;
+    }
+
+    & button {
+      width: 45px;
+      height: 45px;  
+      border-radius: 50%;
+      background: green;
+      color: #fff;
+      border: transparent;
+    }
+  }
+
+  .todo-list {
+  
+    .todo-item {
+      margin-top: 25px;
+      height: 45px;
+      height: 100%;
+      background: ghostwhite;
+      box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      padding: 15px;
+    }
   }
 }
-
