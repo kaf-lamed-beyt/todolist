@@ -29784,11 +29784,57 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var TodoItem = function TodoItem(_ref) {
-  var what = _ref.what;
+  var what = _ref.what,
+      id = _ref.id,
+      done = _ref.done,
+      remove = _ref.remove;
+
+  // deletes a todo item 
+  var deleteTodo = function deleteTodo(id) {
+    var newTodoItem = _toConsumableArray(todoItem);
+
+    newTodoItem.splice(id, 1);
+    setTodoItem(newTodoItem);
+  }; // strikethrough a todo item once its done
+
+
+  var completed = function completed(id) {
+    var newTodoItem = _toConsumableArray(todoItem);
+
+    newTodoItem[id].isCompleted = true;
+    setTodoItem(newTodoItem);
+  };
+
   return _react.default.createElement("div", {
     className: "todo-item"
-  }, what.text);
+  }, what.text, _react.default.createElement("div", {
+    className: "item-control"
+  }, _react.default.createElement("button", {
+    onClick: function onClick() {
+      return completed(id);
+    }
+  }, _react.default.createElement("i", {
+    className: "fas fa-check"
+  })), _react.default.createElement("button", {
+    onClick: function onClick() {
+      return deleteTodo(id);
+    }
+  }, _react.default.createElement("i", {
+    className: "far fa-trash-alt"
+  }))));
 };
 
 var _default = TodoItem;
@@ -29838,6 +29884,8 @@ var TodoList = function TodoList() {
     className: "todo-list"
   }, _data.list.map(function (todo) {
     return _react.default.createElement(_TodoItem.default, {
+      done: completed,
+      remove: deleteTodo,
       what: todo,
       key: todo.id
     });
@@ -29878,49 +29926,45 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var CreateItem = function CreateItem(_ref) {
-  var createTodoItem = _ref.createTodoItem;
-  return function (createTodoItem) {
-    var _React$useState = _react.default.useState(""),
-        _React$useState2 = _slicedToArray(_React$useState, 2),
-        todoItem = _React$useState2[0],
-        setTodoItem = _React$useState2[1];
+var CreateItem = function CreateItem() {
+  var _React$useState = _react.default.useState(""),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      todoItem = _React$useState2[0],
+      setTodoItem = _React$useState2[1];
 
-    var handleSubmit = function handleSubmit(event) {
-      // prevents the browser from reloading
-      // on form submit
-      event.preventDefault();
-      if (!todoItem) return;
-      createTodoItem(todoItem);
-      setTodoItem("");
-    }; // spreads the todo items and adds
-    // the new item to the list
+  var handleSubmit = function handleSubmit(event) {
+    // prevents the browser from reloading
+    // on form submit
+    event.preventDefault();
+    if (!todoItem) return;
+    createTodoItem(todoItem);
+    setTodoItem("");
+  }; // spreads the todo items and adds
+  // the new item to the list
 
 
-    function createTodoItem(item) {
-      var newTodoItems = [].concat(_toConsumableArray(todoItem), [{
-        item: item
-      }]);
-      setTodoItem(newTodoItems);
-      console.log(todoItem);
+  function createTodoItem(text) {
+    var newTodoItem = [].concat(_toConsumableArray(todoItem), [{
+      text: text
+    }]);
+    setTodoItem(newTodoItem);
+  }
+
+  return _react.default.createElement("form", {
+    onSubmit: handleSubmit,
+    className: "input-sect"
+  }, _react.default.createElement("input", {
+    type: "text",
+    className: "input-todo",
+    value: todoItem,
+    onChange: function onChange(e) {
+      return setTodoItem(e.target.value);
     }
-
-    return _react.default.createElement("form", {
-      onSubmit: handleSubmit,
-      className: "input-sect"
-    }, _react.default.createElement("input", {
-      type: "text",
-      className: "input-todo",
-      value: todoItem,
-      onChange: function onChange(e) {
-        return setTodoItem(e.target.value);
-      }
-    }), _react.default.createElement("button", {
-      onClick: handleSubmit
-    }, _react.default.createElement("i", {
-      className: "fa fa-plus"
-    })));
-  }(createTodoItem);
+  }), _react.default.createElement("button", {
+    onClick: handleSubmit
+  }, _react.default.createElement("i", {
+    className: "fas fa-plus"
+  })));
 };
 
 var _default = CreateItem;

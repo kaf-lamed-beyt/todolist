@@ -5,7 +5,6 @@ import TodoItem from "./components/TodoItem"
 import CreateItem from "./components/CreateItem"
 
 const App = ({ todo, createTodoItem }) => {
-
   return (
     <div className='app__base'>
       <h2>Hello Todos</h2>

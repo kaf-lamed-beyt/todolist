@@ -1,6 +1,6 @@
 import React from "react"
 
-const CreateItem = ({ createTodoItem }) => {
+const CreateItem = () => {
   const [todoItem, setTodoItem] = React.useState("")
 
   const handleSubmit = event => {
@@ -15,11 +15,9 @@ const CreateItem = ({ createTodoItem }) => {
 
   // spreads the todo items and adds
   // the new item to the list
-  function createTodoItem(item) {
-    const newTodoItems = [...todoItem, { item }]
-    setTodoItem(newTodoItems)
-
-    console.log(todoItem)
+  function createTodoItem(text) {
+    const newTodoItem = [...todoItem, { text }]
+    setTodoItem(newTodoItem)
   }
 
   return (
@@ -30,7 +28,9 @@ const CreateItem = ({ createTodoItem }) => {
         value={todoItem}
         onChange={e => setTodoItem(e.target.value)}
       />
-      <button onClick={handleSubmit}><i className="fa fa-plus"></i></button>
+      <button onClick={handleSubmit}>
+        <i className='fas fa-plus'></i>
+      </button>
     </form>
   )
 }

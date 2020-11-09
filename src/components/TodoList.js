@@ -7,7 +7,14 @@ const TodoList = () => {
   return (
     <div className='todo-list'>
       {list.map(todo => {
-        return <TodoItem what={todo} key={todo.id} />
+        return (
+          <TodoItem
+            done={completed}
+            remove={deleteTodo}
+            what={todo}
+            key={todo.id}
+          />
+        )
       })}
     </div>
   )

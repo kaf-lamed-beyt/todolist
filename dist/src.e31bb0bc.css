@@ -22,7 +22,7 @@
       width: 320px;
       padding: 12px;
       border-radius: 4px;
-      outline-color: #0A014F;
+      outline-color: #0a014f;
       font-size: 20px; }
     .app__base .input-sect button {
       width: 45px;
@@ -33,6 +33,9 @@
       border: transparent; }
       .app__base .input-sect button:hover {
         cursor: pointer; }
+      .app__base .input-sect button .fas {
+        color: #fff;
+        font-size: 20px; }
   .app__base .todo-list .todo-item {
     margin-top: 25px;
     height: 45px;
@@ -40,12 +43,19 @@
     background: ghostwhite;
     box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    padding: 15px; }
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; }
     .app__base .todo-list .todo-item:hover {
-      background: #0A014F;
+      background: #0a014f;
       color: #fff;
       cursor: pointer;
-      transition: all .4s ease-in; }
+      transition: all 0.4s ease-in; }
+    .app__base .todo-list .todo-item.item-control {
+      width: 400px;
+      border: 1px solid red;
+      display: flex;
+      margin: 4px; }
   @media only screen and (max-width: 576px) {
     .app__base {
       width: 100%;

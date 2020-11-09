@@ -26,7 +26,7 @@
       width: 320px;
       padding: 12px;
       border-radius: 4px;
-      outline-color: #0A014F;
+      outline-color: #0a014f;
       font-size: 20px;
     }
 
@@ -41,6 +41,11 @@
       &:hover {
         cursor: pointer;
       }
+
+      & .fas {
+        color: #fff;
+        font-size: 20px;
+      }
     }
   }
 
@@ -53,12 +58,21 @@
       box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
       border-radius: 6px;
       padding: 15px;
+      display: flex;
+      justify-content: space-between;
 
       &:hover {
-        background: #0A014F;
+        background: #0a014f;
         color: #fff;
         cursor: pointer;
-        transition: all .4s ease-in;
+        transition: all 0.4s ease-in;
+      }
+
+      &.item-control {
+        width: 400px;
+        border: 1px solid red;
+        display: flex;
+        margin: 4px;
       }
     }
   }
@@ -69,9 +83,7 @@
     padding: 20px;
     margin-top: 10%;
 
-
     & .input-sect {
-      
       .input-todo {
         width: 78%;
       }
@@ -84,9 +96,7 @@
     padding: 45px;
     margin-top: 10%;
 
-
     & .input-sect {
-      
       .input-todo {
         width: 78%;
         height: 55px;
