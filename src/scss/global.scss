@@ -7,7 +7,6 @@
 
 .app__base {
   width: 500px;
-  border: 1px solid red;
   margin-top: 3%;
   margin-left: 32%;
   padding: 40px;
@@ -75,6 +74,18 @@
 
         & button {
           margin-left: 6px;
+          border: none;
+          background: #0a014f;
+          height: 26px;
+          width: 35px;
+          color: #fff;
+          border-radius: 3px;
+
+          &:hover {
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+          }
         }
       }
     }

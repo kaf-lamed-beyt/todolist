@@ -17,7 +17,7 @@ const App = () => {
     },
     {
       id: 2,
-      text: "Even small money sef, some di nor have",
+      text: "Even small money sef, someone di nor have",
       isCompleted: false,
     },
   ])
@@ -70,9 +70,7 @@ const TodoItem = ({ todoItem, id, complete, deleteTodo }) => {
   return (
     <div
       className='todo-item'
-      style={
-        ({ textDecoration: todoItem.isCompleted ? "line-through" : "" })
-      }
+      style={{ textDecoration: todoItem.isCompleted ? "line-through" : "" }}
     >
       {todoItem.text}
       <div className='item-control'>

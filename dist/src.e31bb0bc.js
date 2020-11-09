@@ -29898,7 +29898,7 @@ var App = function App() {
     isCompleted: false
   }, {
     id: 2,
-    text: "Even small money sef, some di nor have",
+    text: "Even small money sef, someone di nor have",
     isCompleted: false
   }]),
       _React$useState2 = _slicedToArray(_React$useState, 2),
