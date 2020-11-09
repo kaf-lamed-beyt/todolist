@@ -69,10 +69,14 @@
       }
 
       &.item-control {
-        width: 400px;
-        border: 1px solid red;
+        width: 800px;
         display: flex;
         margin: 4px;
+        height: 100%;
+ 
+        button {
+          margin: 30px;
+        }
       }
     }
   }

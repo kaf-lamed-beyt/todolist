@@ -29772,7 +29772,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"components/TodoItem.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../../../../node_modules/react-dom/cjs/react-dom.development.js"}],"components/TodoList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29784,117 +29784,16 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var TodoItem = function TodoItem(_ref) {
-  var what = _ref.what,
-      id = _ref.id,
-      done = _ref.done,
-      remove = _ref.remove;
-
-  // deletes a todo item 
-  var deleteTodo = function deleteTodo(id) {
-    var newTodoItem = _toConsumableArray(todoItem);
-
-    newTodoItem.splice(id, 1);
-    setTodoItem(newTodoItem);
-  }; // strikethrough a todo item once its done
-
-
-  var completed = function completed(id) {
-    var newTodoItem = _toConsumableArray(todoItem);
-
-    newTodoItem[id].isCompleted = true;
-    setTodoItem(newTodoItem);
-  };
-
-  return _react.default.createElement("div", {
-    className: "todo-item"
-  }, what.text, _react.default.createElement("div", {
-    className: "item-control"
-  }, _react.default.createElement("button", {
-    onClick: function onClick() {
-      return completed(id);
-    }
-  }, _react.default.createElement("i", {
-    className: "fas fa-check"
-  })), _react.default.createElement("button", {
-    onClick: function onClick() {
-      return deleteTodo(id);
-    }
-  }, _react.default.createElement("i", {
-    className: "far fa-trash-alt"
-  }))));
-};
-
-var _default = TodoItem;
-exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js"}],"../assets/data.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.list = void 0;
-var list = [{
-  id: 0,
-  text: "Kilon sup"
-}, {
-  id: 1,
-  text: "Hello there!"
-}, {
-  id: 2,
-  text: "Kilian Mbape"
-}, {
-  id: 3,
-  text: "What's happening in this life!"
-}, {
-  id: 4,
-  text: "Even small money sef, some di nor have"
-}];
-exports.list = list;
-},{}],"components/TodoList.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _TodoItem = _interopRequireDefault(require("../components/TodoItem"));
-
-var _data = require("../../assets/data");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var TodoList = function TodoList() {
+var TodoList = function TodoList(_ref) {
+  var children = _ref.children;
   return _react.default.createElement("div", {
     className: "todo-list"
-  }, _data.list.map(function (todo) {
-    return _react.default.createElement(_TodoItem.default, {
-      done: completed,
-      remove: deleteTodo,
-      what: todo,
-      key: todo.id
-    });
-  }));
+  }, children);
 };
 
 var _default = TodoList;
 exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js","../components/TodoItem":"components/TodoItem.js","../../assets/data":"../assets/data.js"}],"components/CreateItem.js":[function(require,module,exports) {
+},{"react":"../../../../node_modules/react/index.js"}],"components/CreateItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29903,6 +29802,68 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var CreateItem = function CreateItem(_ref) {
+  var createTodoItem = _ref.createTodoItem;
+
+  var _React$useState = _react.default.useState(""),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      value = _React$useState2[0],
+      setTodoValue = _React$useState2[1];
+
+  var handleSubmit = function handleSubmit(event) {
+    // prevents the browser from reloading
+    // on form submit
+    event.preventDefault();
+    if (!value) return;
+    createTodoItem(value);
+    setTodoValue("");
+  };
+
+  return _react.default.createElement("form", {
+    onSubmit: handleSubmit,
+    className: "input-sect"
+  }, _react.default.createElement("input", {
+    type: "text",
+    className: "input-todo",
+    value: value,
+    onChange: function onChange(e) {
+      return setTodoValue(e.target.value);
+    }
+  }), _react.default.createElement("button", null, _react.default.createElement("i", {
+    className: "fas fa-plus"
+  })));
+};
+
+var _default = CreateItem;
+exports.default = _default;
+},{"react":"../../../../node_modules/react/index.js"}],"app.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _TodoList = _interopRequireDefault(require("./components/TodoList"));
+
+var _CreateItem = _interopRequireDefault(require("./components/CreateItem"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29926,20 +29887,23 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var CreateItem = function CreateItem() {
-  var _React$useState = _react.default.useState(""),
+var App = function App() {
+  var _React$useState = _react.default.useState([{
+    id: 0,
+    text: "Hello there!",
+    isCompleted: false
+  }, {
+    id: 1,
+    text: "What's happening in this life!",
+    isCompleted: false
+  }, {
+    id: 2,
+    text: "Even small money sef, some di nor have",
+    isCompleted: false
+  }]),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       todoItem = _React$useState2[0],
-      setTodoItem = _React$useState2[1];
-
-  var handleSubmit = function handleSubmit(event) {
-    // prevents the browser from reloading
-    // on form submit
-    event.preventDefault();
-    if (!todoItem) return;
-    createTodoItem(todoItem);
-    setTodoItem("");
-  }; // spreads the todo items and adds
+      setTodoItem = _React$useState2[1]; // spreads the todo items and adds
   // the new item to the list
 
 
@@ -29948,66 +29912,69 @@ var CreateItem = function CreateItem() {
       text: text
     }]);
     setTodoItem(newTodoItem);
-  }
+    console.log(text);
+  } // complete todo item
 
-  return _react.default.createElement("form", {
-    onSubmit: handleSubmit,
-    className: "input-sect"
-  }, _react.default.createElement("input", {
-    type: "text",
-    className: "input-todo",
-    value: todoItem,
-    onChange: function onChange(e) {
-      return setTodoItem(e.target.value);
-    }
-  }), _react.default.createElement("button", {
-    onClick: handleSubmit
-  }, _react.default.createElement("i", {
-    className: "fas fa-plus"
-  })));
-};
 
-var _default = CreateItem;
-exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js"}],"app.js":[function(require,module,exports) {
-"use strict";
+  var complete = function complete(id) {
+    var newTodoItem = _toConsumableArray(todoItem);
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+    newTodoItem[id].isCompleted = true;
+    setTodoItem(newTodoItem);
+  };
 
-var _react = _interopRequireDefault(require("react"));
+  var deleteTodo = function deleteTodo(id) {
+    var newTodoItem = _toConsumableArray(todoItem);
 
-var _TodoList = _interopRequireDefault(require("./components/TodoList"));
+    newTodoItem.splice(id, 1);
+    setTodoItem(newTodoItem);
+  };
 
-var _TodoItem = _interopRequireDefault(require("./components/TodoItem"));
-
-var _CreateItem = _interopRequireDefault(require("./components/CreateItem"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var App = function App(_ref) {
-  var todo = _ref.todo,
-      createTodoItem = _ref.createTodoItem;
   return _react.default.createElement("div", {
     className: "app__base"
-  }, _react.default.createElement("h2", null, "Hello Todos"), _react.default.createElement(_TodoList.default, null, _react.default.createElement(_TodoItem.default, {
-    todo: todo
-  })), _react.default.createElement(_CreateItem.default, {
+  }, _react.default.createElement("h2", null, "Hello Todos"), todoItem.map(function (what) {
+    return _react.default.createElement(_TodoList.default, null, _react.default.createElement(TodoItem, {
+      key: what.id,
+      todoItem: what,
+      complete: complete,
+      deleteTodo: deleteTodo
+    }));
+  }), _react.default.createElement(_CreateItem.default, {
     createTodoItem: createTodoItem
   }));
 };
 
-var _default = App; // const user = prompt("Hello there :wave:, what is your name?")
+var _default = App;
+exports.default = _default;
+
+var TodoItem = function TodoItem(_ref) {
+  var todoItem = _ref.todoItem,
+      id = _ref.id,
+      complete = _ref.complete,
+      deleteTodo = _ref.deleteTodo;
+  return _react.default.createElement("div", {
+    className: "todo-item",
+    style: {
+      textDecoration: todoItem.isCompleted ? "line-through" : ""
+    }
+  }, todoItem.text, _react.default.createElement("div", {
+    className: "item-control"
+  }, _react.default.createElement("button", {
+    onClick: function onClick() {
+      return complete(id);
+    }
+  }, "done"), _react.default.createElement("button", {
+    onClick: function onClick() {
+      return deleteTodo(id);
+    }
+  }, "del")));
+}; // const user = prompt("Hello there :wave:, what is your name?")
 // if (user) {
 //   return (
 //     <h3>Hello {user} what do you want to do today? </h3>
 //   )
 // }
-
-exports.default = _default;
-},{"react":"../../../../node_modules/react/index.js","./components/TodoList":"components/TodoList.js","./components/TodoItem":"components/TodoItem.js","./components/CreateItem":"components/CreateItem.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../../../../node_modules/react/index.js","./components/TodoList":"components/TodoList.js","./components/CreateItem":"components/CreateItem.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -30121,7 +30088,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43027" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36319" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

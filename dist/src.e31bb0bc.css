@@ -52,10 +52,12 @@
       cursor: pointer;
       transition: all 0.4s ease-in; }
     .app__base .todo-list .todo-item.item-control {
-      width: 400px;
-      border: 1px solid red;
+      width: 800px;
       display: flex;
-      margin: 4px; }
+      margin: 4px;
+      height: 100%; }
+      .app__base .todo-list .todo-item.item-control button {
+        margin: 30px; }
   @media only screen and (max-width: 576px) {
     .app__base {
       width: 100%;
