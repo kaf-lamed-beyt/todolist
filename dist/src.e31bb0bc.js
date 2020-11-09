@@ -29858,6 +29858,14 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -29872,30 +29880,47 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var CreateItem = function CreateItem(_ref) {
   var createTodoItem = _ref.createTodoItem;
+  return function (createTodoItem) {
+    var _React$useState = _react.default.useState(""),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        todoItem = _React$useState2[0],
+        setTodoItem = _React$useState2[1];
 
-  var _React$useState = _react.default.useState(""),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      todoItem = _React$useState2[0],
-      setTodoItem = _React$useState2[1];
+    var handleSubmit = function handleSubmit(event) {
+      // prevents the browser from reloading
+      // on form submit
+      event.preventDefault();
+      if (!todoItem) return;
+      createTodoItem(todoItem);
+      setTodoItem("");
+    }; // spreads the todo items and adds
+    // the new item to the list
 
-  var handleSubmit = function handleSubmit(event) {
-    // prevents the browser from reloading
-    // on form submit
-    event.preventDefault();
-    todoItem ? createTodoItem(todoItem) : setTodoItem("");
-  };
 
-  return _react.default.createElement("form", {
-    onSubmit: handleSubmit,
-    className: "input-sect"
-  }, _react.default.createElement("input", {
-    type: "text",
-    className: "input-todo",
-    value: todoItem,
-    onChange: function onChange(e) {
-      return setTodoItem(e.target.value);
+    function createTodoItem(item) {
+      var newTodoItems = [].concat(_toConsumableArray(todoItem), [{
+        item: item
+      }]);
+      setTodoItem(newTodoItems);
+      console.log(todoItem);
     }
-  }), _react.default.createElement("button", null, "Add"));
+
+    return _react.default.createElement("form", {
+      onSubmit: handleSubmit,
+      className: "input-sect"
+    }, _react.default.createElement("input", {
+      type: "text",
+      className: "input-todo",
+      value: todoItem,
+      onChange: function onChange(e) {
+        return setTodoItem(e.target.value);
+      }
+    }), _react.default.createElement("button", {
+      onClick: handleSubmit
+    }, _react.default.createElement("i", {
+      className: "fa fa-plus"
+    })));
+  }(createTodoItem);
 };
 
 var _default = CreateItem;

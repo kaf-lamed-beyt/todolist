@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Ubuntu Mono", monospace;
 }
 
 .app__base {
@@ -23,20 +24,27 @@
     & .input-todo {
       height: 45px;
       width: 320px;
+      padding: 12px;
+      border-radius: 4px;
+      outline-color: #0A014F;
+      font-size: 20px;
     }
 
     & button {
       width: 45px;
-      height: 45px;  
+      height: 45px;
       border-radius: 50%;
-      background: green;
+      background: #0a014f;
       color: #fff;
       border: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
   .todo-list {
-  
     .todo-item {
       margin-top: 25px;
       height: 45px;
@@ -45,6 +53,49 @@
       box-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.2);
       border-radius: 6px;
       padding: 15px;
+
+      &:hover {
+        background: #0A014F;
+        color: #fff;
+        cursor: pointer;
+        transition: all .4s ease-in;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10%;
+
+
+    & .input-sect {
+      
+      .input-todo {
+        width: 78%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+    margin: auto;
+    padding: 45px;
+    margin-top: 10%;
+
+
+    & .input-sect {
+      
+      .input-todo {
+        width: 78%;
+        height: 55px;
+      }
+
+      button {
+        height: 60px;
+        width: 60px;
+      }
     }
   }
 }
