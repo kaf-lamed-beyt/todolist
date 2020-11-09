@@ -11,7 +11,8 @@
   margin-left: 32%;
   padding: 40px; }
   .app__base h2 {
-    text-align: center; }
+    text-align: justify;
+    color: #0a014f; }
   .app__base .input-sect {
     display: flex;
     justify-content: space-between;

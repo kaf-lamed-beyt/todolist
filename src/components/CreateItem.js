@@ -21,7 +21,7 @@ const CreateItem = ({ createTodoItem }) => {
         value={value}
         onChange={e => setTodoValue(e.target.value)}
       />
-      <button>
+      <button onClick={handleSubmit}>
         <i className='fas fa-plus'></i>
       </button>
     </form>

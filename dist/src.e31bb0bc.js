@@ -29844,7 +29844,9 @@ var CreateItem = function CreateItem(_ref) {
     onChange: function onChange(e) {
       return setTodoValue(e.target.value);
     }
-  }), _react.default.createElement("button", null, _react.default.createElement("i", {
+  }), _react.default.createElement("button", {
+    onClick: handleSubmit
+  }, _react.default.createElement("i", {
     className: "fas fa-plus"
   })));
 };
@@ -29888,6 +29890,8 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var App = function App() {
+  var user = prompt("Hello there, what is your name?");
+
   var _React$useState = _react.default.useState([{
     id: 0,
     text: "Hello there!",
@@ -29932,7 +29936,7 @@ var App = function App() {
 
   return _react.default.createElement("div", {
     className: "app__base"
-  }, _react.default.createElement("h2", null, "Hello Todos"), todoItem.map(function (what) {
+  }, _react.default.createElement("h2", null, "Hello ", user ? user : "stranger", " what do you want to do today?"), todoItem.map(function (what) {
     return _react.default.createElement(_TodoList.default, null, _react.default.createElement(TodoItem, {
       key: what.id,
       todoItem: what,
@@ -29968,12 +29972,7 @@ var TodoItem = function TodoItem(_ref) {
       return deleteTodo(id);
     }
   }, "del")));
-}; // const user = prompt("Hello there :wave:, what is your name?")
-// if (user) {
-//   return (
-//     <h3>Hello {user} what do you want to do today? </h3>
-//   )
-// }
+};
 },{"react":"../../../../node_modules/react/index.js","./components/TodoList":"components/TodoList.js","./components/CreateItem":"components/CreateItem.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -30088,7 +30087,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36319" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42685" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
