@@ -68,14 +68,13 @@
         transition: all 0.4s ease-in;
       }
 
-      &.item-control {
-        width: 800px;
+      .item-control {
         display: flex;
         margin: 4px;
         height: 100%;
- 
-        button {
-          margin: 30px;
+
+        & button {
+          margin-left: 6px;
         }
       }
     }
