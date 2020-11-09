@@ -4,7 +4,7 @@ import TodoList from "./components/TodoList"
 import CreateItem from "./components/CreateItem"
 
 const App = () => {
-  const user = prompt("Hello there, what is your name?")
+  // const user = prompt("Hello there, what is your name?")
 
   const [todoItem, setTodoItem] = React.useState([
     {
@@ -29,8 +29,6 @@ const App = () => {
   function createTodoItem(text) {
     const newTodoItem = [...todoItem, { text }]
     setTodoItem(newTodoItem)
-
-    console.log(text)
   }
 
   // complete todo item
@@ -48,7 +46,7 @@ const App = () => {
 
   return (
     <div className='app__base'>
-      <h2>Hello {user ? user : "stranger"} what do you want to do today?</h2>
+      <h2>Hello 🤝 what do you want to do today?</h2>
       {todoItem.map(what => {
         return (
           <TodoList>

@@ -3,10 +3,10 @@ import React from "react"
 const CreateItem = ({ createTodoItem }) => {
   const [value, setTodoValue] = React.useState("")
 
-  const handleSubmit = event => {
+  const handleSubmit = e => {
     // prevents the browser from reloading
     // on form submit
-    event.preventDefault()
+    e.preventDefault()
 
     if (!value) return
     createTodoItem(value)

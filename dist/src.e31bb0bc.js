@@ -29825,10 +29825,10 @@ var CreateItem = function CreateItem(_ref) {
       value = _React$useState2[0],
       setTodoValue = _React$useState2[1];
 
-  var handleSubmit = function handleSubmit(event) {
+  var handleSubmit = function handleSubmit(e) {
     // prevents the browser from reloading
     // on form submit
-    event.preventDefault();
+    e.preventDefault();
     if (!value) return;
     createTodoItem(value);
     setTodoValue("");
@@ -29890,8 +29890,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var App = function App() {
-  var user = prompt("Hello there, what is your name?");
-
+  // const user = prompt("Hello there, what is your name?")
   var _React$useState = _react.default.useState([{
     id: 0,
     text: "Hello there!",
@@ -29916,7 +29915,6 @@ var App = function App() {
       text: text
     }]);
     setTodoItem(newTodoItem);
-    console.log(text);
   } // complete todo item
 
 
@@ -29936,7 +29934,7 @@ var App = function App() {
 
   return _react.default.createElement("div", {
     className: "app__base"
-  }, _react.default.createElement("h2", null, "Hello ", user ? user : "stranger", " what do you want to do today?"), todoItem.map(function (what) {
+  }, _react.default.createElement("h2", null, "Hello \uD83E\uDD1D what do you want to do today?"), todoItem.map(function (what) {
     return _react.default.createElement(_TodoList.default, null, _react.default.createElement(TodoItem, {
       key: what.id,
       todoItem: what,
@@ -30087,7 +30085,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42685" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36453" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
